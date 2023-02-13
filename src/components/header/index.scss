@@ -1,0 +1,8 @@
+.common-header {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  &__home {
+    margin-left: 20px;
+  }
+}

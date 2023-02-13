@@ -1,17 +1,19 @@
 import React from 'react'
 import { Route, Switch, HashRouter } from 'react-router-dom'
-import Detail from '@/views/detail'
 import Home from '@/views/home'
+import DemoStart from '@/views/demo-start'
 
-const CoreRouter = () => {
+export const routList = [{ path: '/demo-start', component: DemoStart, title: '起步Demo' }]
+
+export const CoreRouter = () => {
   return (
     <HashRouter>
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/detail' component={Detail} />
+        {routList.map((item) => (
+          <Route exact path={item.path} component={item.component} key={item.path} />
+        ))}
       </Switch>
     </HashRouter>
   )
 }
-
-export default CoreRouter
