@@ -6,15 +6,17 @@
   .item {
     display: flex;
     align-items: center;
-    background: #efefef;
+    background: #e6f7ff;
     height: 50px;
     padding: 0 15px;
     box-sizing: border-box;
     font-size: 14px;
     cursor: pointer;
+    border-bottom: 4px solid #fff;
+    border-radius: 5px;
 
-    :hover {
-      background: #bfbfbf;
+    &:hover {
+      background: #bae7ff;
     }
   }
 }

@@ -2,8 +2,12 @@ import React from 'react'
 import { Route, Switch, HashRouter } from 'react-router-dom'
 import Home from '@/views/home'
 import DemoStart from '@/views/demo-start'
+import DemoDrawLine from '@/views/demo-draw-line'
 
-export const routList = [{ path: '/demo-start', component: DemoStart, title: '起步Demo' }]
+export const routList = [
+  { path: '/demo-start', component: DemoStart, title: '起步Demo' },
+  { path: '/demo-draw-line', component: DemoDrawLine, title: '画线' },
+]
 
 export const CoreRouter = () => {
   return (
