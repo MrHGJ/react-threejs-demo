@@ -25,7 +25,7 @@ const DemoLoadGltf = () => {
 
   const renderer = new THREE.WebGLRenderer({ antialias: true })
 
-  // 此类从立方体贴图环境纹理生成经过预过滤的 Mipmapped 辐射环境贴图 (PMREM)
+  // 环境纹理。此类从立方体贴图环境纹理生成经过预过滤的 Mipmapped 辐射环境贴图 (PMREM)
   const pmremGenerator = new THREE.PMREMGenerator(renderer)
   // 场景
   const scene = new THREE.Scene()
