@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as THREE from 'three'
 import Stats from 'three/examples/jsm/libs/stats.module.js'
 
@@ -7,11 +7,16 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+import { Spin } from 'antd'
+import './index.scss'
 
 const CONTAINER_ID = 'three-container'
 
 const DemoLoadGltf = () => {
+  const [loading, setLoading] = useState(false)
+  // 动画混合器，用于场景中特定对象的动画的播放器
   let mixer
+  // 用于跟踪时间
   const clock = new THREE.Clock()
   const stats = new Stats()
 
@@ -69,9 +74,11 @@ const DemoLoadGltf = () => {
     camera.position.set(5, 2, 8)
 
     loader.setDRACOLoader(dracoLoader)
+    setLoading(true)
     loader.load(
       '/static/LittlestTokyo.glb',
       function (gltf) {
+        setLoading(false)
         const model = gltf.scene
         model.position.set(1, 1, 0)
         model.scale.set(0.01, 0.01, 0.01)
@@ -94,7 +101,12 @@ const DemoLoadGltf = () => {
   }, [])
 
   return (
-    <div>
+    <div className='demo-load-gltf'>
+      {loading && (
+        <div className='loading-container'>
+          <Spin size='large' tip='Loading...' />
+        </div>
+      )}
       <div id={CONTAINER_ID} />
     </div>
   )
