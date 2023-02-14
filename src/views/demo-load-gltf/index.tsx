@@ -18,24 +18,32 @@ const DemoLoadGltf = () => {
   let mixer
   // 用于跟踪时间
   const clock = new THREE.Clock()
+  // 性能看板
   const stats = new Stats()
 
   let container
 
   const renderer = new THREE.WebGLRenderer({ antialias: true })
 
+  // 此类从立方体贴图环境纹理生成经过预过滤的 Mipmapped 辐射环境贴图 (PMREM)
   const pmremGenerator = new THREE.PMREMGenerator(renderer)
+  // 场景
   const scene = new THREE.Scene()
 
   const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 100)
 
+  // 轨道控制器
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.target.set(0, 0.5, 0)
   controls.update()
+  // 右键拖拽
   controls.enablePan = false
+  // 动画循环时，开启惯性
   controls.enableDamping = true
 
   /**
+   * 使用Draco库压缩的几何体加载器
+   * 该gltf文件被压缩过，必须用DRACOLoader进行转换处理，参考：https://blog.csdn.net/weixin_43131842/article/details/118025968
    * React项目中DRACOLoader的setDecoderPath报错解决
    * https://stackoverflow.com/questions/56071764/how-to-use-dracoloader-with-gltfloader-in-reactjs
    */
@@ -47,15 +55,10 @@ const DemoLoadGltf = () => {
 
   function animate() {
     requestAnimationFrame(animate)
-
     const delta = clock.getDelta()
-
     mixer.update(delta)
-
     controls.update()
-
     stats.update()
-
     renderer.render(scene, camera)
   }
 
@@ -69,7 +72,7 @@ const DemoLoadGltf = () => {
     container?.appendChild(renderer.domElement)
 
     scene.background = new THREE.Color(0xbfe3dd)
-    scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture
+    scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.0).texture
 
     camera.position.set(5, 2, 8)
 
