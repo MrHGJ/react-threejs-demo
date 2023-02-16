@@ -56,6 +56,7 @@ const DemoLoadGltf = () => {
 
   function animate() {
     requestAnimationFrame(animate)
+    // 衡量两帧之间的时间
     const delta = clock.getDelta()
     mixer.update(delta)
     controls.update()
