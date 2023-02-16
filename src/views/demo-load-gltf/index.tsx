@@ -23,6 +23,7 @@ const DemoLoadGltf = () => {
 
   let container
 
+  // 启用抗锯齿
   const renderer = new THREE.WebGLRenderer({ antialias: true })
 
   // 环境纹理。此类从立方体贴图环境纹理生成经过预过滤的 Mipmapped 辐射环境贴图 (PMREM)
