@@ -6,6 +6,7 @@ import DemoDrawLine from '@/views/demo-draw-line'
 import DemoDrawLine2 from '@/views/demo-draw-line2'
 import DemoLoadGltf from '@/views/demo-load-gltf'
 import DemoCameraArray from '@/views/demo-camera-array'
+import DemoAnimateSimple from '@/views/demo-animate-simple'
 
 export const routList = [
   { path: '/demo-start', component: DemoStart, title: '1. 旋转立方体' },
@@ -13,6 +14,7 @@ export const routList = [
   { path: '/demo-draw-line2', component: DemoDrawLine2, title: '3. 旋转线型立方体' },
   { path: '/demo-load-gltf', component: DemoLoadGltf, title: '4. 加载gltf格式3D模型' },
   { path: '/demo-camera-array', component: DemoCameraArray, title: '5. camera array' },
+  { path: '/demo-animate-simple', component: DemoAnimateSimple, title: '6. 动画基础' },
 ]
 
 export const CoreRouter = () => {
