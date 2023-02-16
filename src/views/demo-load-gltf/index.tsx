@@ -67,6 +67,9 @@ const DemoLoadGltf = () => {
   const init = () => {
     container = document.getElementById(CONTAINER_ID)
     container?.appendChild(stats.dom)
+    // 性能面板固定到右上角
+    stats.domElement.style.right = '0px'
+    stats.domElement.style.left = 'auto'
 
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(window.innerWidth, window.innerHeight)
