@@ -35,11 +35,12 @@ const DemoLoadGltf = () => {
 
   // 轨道控制器
   const controls = new OrbitControls(camera, renderer.domElement)
+  // 旋转的中心点
   controls.target.set(0, 0.5, 0)
   controls.update()
-  // 右键拖拽
-  controls.enablePan = false
-  // 动画循环时，开启惯性
+  // 右键拖拽 固定目标
+  controls.enablePan = true
+  // 启用阻尼，增强现实感
   controls.enableDamping = true
 
   /**

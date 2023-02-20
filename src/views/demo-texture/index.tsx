@@ -25,7 +25,7 @@ const DemoTexture = () => {
   const cube = new THREE.Mesh(geometry, material)
 
   // 平行光
-  const light = new THREE.DirectionalLight('white', 8)
+  const light = new THREE.DirectionalLight('white', 4)
 
   // 容器
   let container
@@ -48,6 +48,7 @@ const DemoTexture = () => {
     // 将渲染器的dom添加到html中
     container?.appendChild(renderer.domElement)
     light.position.set(10, 10, 10)
+    scene.add(new THREE.AmbientLight(0xffffff, 2))
     // 将网格对象放入场景中
     scene.add(cube, light)
     // 将摄像机往外移动，防止摄像机和物体重合
