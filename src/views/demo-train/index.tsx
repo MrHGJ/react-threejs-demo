@@ -26,7 +26,7 @@ const DemoTrain = () => {
   // 启用阻尼，增强现实感
   controls.enableDamping = true
 
-  // 灰色材质
+  // 灰色材质 开启平坦阴影渲染
   const materialDetail = new THREE.MeshStandardMaterial({
     color: 'darkslategray',
     flatShading: true,

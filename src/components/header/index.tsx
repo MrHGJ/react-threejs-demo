@@ -13,8 +13,7 @@ export const Header = () => {
         className='common-header__home'
         icon={<HomeOutlined />}
         onClick={() => {
-          const historyLength = history.length
-          history.go(-(historyLength - 1))
+          history.go(-1)
         }}
       />
     </div>
