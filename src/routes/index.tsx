@@ -9,6 +9,7 @@ import DemoCameraArray from '@/views/demo-camera-array'
 import DemoAnimateSimple from '@/views/demo-animate-simple'
 import DemoTexture from '@/views/demo-texture'
 import DemoTrain from '@/views/demo-train'
+import DemoTexture2 from '@/views/demo-texture2'
 
 export const routList = [
   { path: '/demo-start', component: DemoStart, title: '1. 旋转立方体' },
@@ -19,6 +20,7 @@ export const routList = [
   { path: '/demo-animate-simple', component: DemoAnimateSimple, title: '6. 动画基础' },
   { path: '/demo-texture', component: DemoTexture, title: '7. 纹理映射' },
   { path: '/demo-train', component: DemoTrain, title: '8. 火车模型 Demo' },
+  { path: '/demo-texture2', component: DemoTexture2, title: '9. 立方体贴图' },
 ]
 
 export const CoreRouter = () => {
